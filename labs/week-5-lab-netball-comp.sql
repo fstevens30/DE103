@@ -30,8 +30,8 @@ CREATE TABLE team_member (
 	);
 
 CREATE TABLE club_role (
-	FOREIGN KEY (club_name) REFERENCES club(club_name),
-	FOREIGN KEY (person_id) REFERENCES person(person_id),
-	role VARCHAR(20) PRIMARY KEY
-	CONSTRAINT 
-)
+	club_name VARCHAR(50) FOREIGN KEY REFERENCES club(club_name),
+	person_id INT FOREIGN KEY REFERENCES person(person_id),
+	role VARCHAR(20) PRIMARY KEY,
+	CONSTRAINT club_role_pk PRIMARY KEY (club_name, person_id, role)
+	);
