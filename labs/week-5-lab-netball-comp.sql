@@ -10,7 +10,7 @@ CREATE TABLE person (
 
 CREATE TABLE location (
     code INT(4) PRIMARY KEY,
-	description VARCHAR(80)
+	description VARCHAR(80) NOT NULL
 	);
 
 CREATE TABLE club (
@@ -18,13 +18,20 @@ CREATE TABLE club (
 	);
 
 CREATE TABLE team (
-	team_name VARCHAR(50) PRIMARY KEY,
+	team_name VARCHAR(50) PRIMARY KEY
 	FOREIGN KEY (club_name) REFERENCES club(club_name)
 	);
 
 CREATE TABLE team_member (
 	person_id INT FOREIGN KEY REFERENCES person(person_id),
 	team_name VARCHAR(50) FOREIGN KEY REFERENCES team(team_name),
-	PRIMARY KEY (person_id, team_name)
-	position VARCHAR(2) -- Is 2 because netball positions are GK, GD, WD, WA, C, GA and GS
+	CONSTRAINT team_member_pk PRIMARY KEY (person_id, team_name),
+	position VARCHAR(2) NOT NULL -- Is 2 because netball positions are GK, GD, WD, WA, C, GA and GS
 	);
+
+CREATE TABLE club_role (
+	FOREIGN KEY (club_name) REFERENCES club(club_name),
+	FOREIGN KEY (person_id) REFERENCES person(person_id),
+	role VARCHAR(20) PRIMARY KEY
+	CONSTRAINT 
+)
