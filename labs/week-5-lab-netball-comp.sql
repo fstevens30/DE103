@@ -9,4 +9,17 @@ CREATE TABLE person (
 	);
 
 CREATE TABLE location (
-	code 
+    code INT(4) PRIMARY KEY,
+	description VARCHAR(80)
+	);
+
+CREATE TABLE club (
+	club_name VARCHAR(50) PRIMARY KEY,
+	);
+
+CREATE TABLE team (
+	team_name VARCHAR(50) PRIMARY KEY,
+	FOREIGN KEY (club_name) REFERENCES club(club_name)
+	);
+
+
