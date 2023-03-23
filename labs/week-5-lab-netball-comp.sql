@@ -4,8 +4,8 @@ USE netball_competition;
 
 CREATE TABLE person (
 	person_id INT IDENTITY PRIMARY KEY,
-	first_name VARCHAR(20),
-	last_name VARCHAR(40)
+	first_name VARCHAR(20) NOT NULL,
+	last_name VARCHAR(40) -- Last name can be null as some cultures have different naming conventions 
 	);
 
 CREATE TABLE location (
@@ -28,4 +28,3 @@ CREATE TABLE team_member (
 	PRIMARY KEY (person_id, team_name)
 	position VARCHAR(2) -- Is 2 because netball positions are GK, GD, WD, WA, C, GA and GS
 	);
-
