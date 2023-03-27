@@ -44,3 +44,18 @@ CREATE TABLE TableName (
 );
 ```
 
+## Data Types
+
+It is crucial to select an approprait data type for each column. The data type will determine the size of the column, the range of values that can be stored, and the operations that can be performed on the column. The following table shows the most common data types and their properties.
+
+- NOTE: I will update this table with more data types as I learn them.
+
+| Data Type | Description | Size | Range | Operations |
+| --- | --- | --- | --- | --- |
+| `int` | Integer | 4 bytes | -2,147,483,648 to 2,147,483,647 | Arithmetic, Comparison, Logical |
+| `bigint` | Large Integer | 8 bytes | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | Arithmetic, Comparison, Logical |
+| `smallint` | Small Integer | 2 bytes | -32,768 to 32,767 | Arithmetic, Comparison, Logical |
+| `tinyint` | Tiny Integer | 1 byte | 0 to 255 | Arithmetic, Comparison, Logical |
+| `bit` | Boolean | 1 bit | 0 or 1 | Arithmetic, Comparison, Logical |
+| `char` | Fixed Length String | 0-8,000 characters | | Arithmetic, Comparison, Logical |
+| `varchar` | Variable Length String | 0-8,000 characters | | Arithmetic, Comparison, Logical |
