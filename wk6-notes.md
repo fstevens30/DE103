@@ -52,6 +52,8 @@ SELECT * from album_track
     ORDER BY track_number DESC;
 ```
 
+Note that the default sort order is ascending.
+
 ## `UPDATE`
 
 `UPDATE` is used to modify the existing records in a table.
