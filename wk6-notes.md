@@ -37,3 +37,17 @@ By using `WHERE` we can filter the data that is returned from a `SELECT` stateme
 SELECT * from album_track
     WHERE album_name = 'The Dark Side of the Moon';
 ```
+
+We can also use `ORDER BY`  to sort the results of a `SELECT` statement.
+
+```sql
+-- Select all tracks from the album 'The Dark Side of the Moon' and sort them by track number
+SELECT * from album_track
+    WHERE album_name = 'The Dark Side of the Moon'
+    ORDER BY track_number;
+
+-- We can also sort in descending order using the keyword DESC
+SELECT * from album_track
+    WHERE album_name = 'The Dark Side of the Moon'
+    ORDER BY track_number DESC;
+```
