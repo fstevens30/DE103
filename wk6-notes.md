@@ -113,3 +113,10 @@ INSERT INTO album_track (album_name, track_name, track_number, length)
 DELETE FROM album_track
     WHERE album_name = 'The Dark Side of the Moon' AND track_name = 'Time';
 ```
+
+Be careful when using `DELETE` as it will delete all records that match the `WHERE` clause. If you do not specify a `WHERE` clause, all records in the table will be deleted.
+You will also run into issues when trying to delete records that are referenced by other records in other tables. For example, if you try to delete a record from the `album` table that is referenced by a record in the `album_track` table, you will get an error. This is good because it prevents you from deleting data that is still being used by other records.
+
+The most important thing to remember is to **always back up your database before making any changes**.
+
+***
