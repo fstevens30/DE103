@@ -51,3 +51,23 @@ SELECT * from album_track
     WHERE album_name = 'The Dark Side of the Moon'
     ORDER BY track_number DESC;
 ```
+
+## `UPDATE`
+
+`UPDATE` is used to modify the existing records in a table.
+
+```sql
+-- Update the length of the ablum 'The Dark Side of the Moon' to 42:49
+UPDATE album
+    SET length = '42:49'
+    WHERE album_name = 'The Dark Side of the Moon';
+```
+
+We can also use `UPDATE` to change the value of multiple columns in a table.
+
+```sql
+-- Update the length of the ablum 'The Dark Side of the Moon' to 42:49 and the release year to 1973
+UPDATE album
+    SET length = '42:49', release_year = 1973
+    WHERE album_name = 'The Dark Side of the Moon';
+```
