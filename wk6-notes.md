@@ -10,6 +10,8 @@
 - Altering data in a database using `UPDATE`
 - Deleting data from a database using `DELETE`
 
+***
+
 ## `SELECT`
 
 The `SELECT` statement is used to retrieve data from a database. It is the most common SQL statement.
@@ -27,6 +29,8 @@ SELECT column1, column2, column3 from table_name;
 -- Select a single column
 SELECT column1 from table_name;
 ```
+
+***
 
 ## `WHERE`
 
@@ -54,6 +58,8 @@ SELECT * from album_track
 
 Note that the default sort order is ascending.
 
+***
+
 ## `UPDATE`
 
 `UPDATE` is used to modify the existing records in a table.
@@ -72,4 +78,38 @@ We can also use `UPDATE` to change the value of multiple columns in a table.
 UPDATE album
     SET length = '42:49', release_year = 1973
     WHERE album_name = 'The Dark Side of the Moon';
+```
+
+***
+
+## `INSERT`
+
+`INSERT` is used to insert new records in a table.
+
+```sql
+-- Insert a new track into the album 'The Dark Side of the Moon'
+INSERT INTO album_track (album_name, track_name, track_number, length)
+    VALUES ('The Dark Side of the Moon', 'Time', 7, '7:49');
+```
+
+We can insert multiple records at once by using the `VALUES` clause multiple times.
+
+```sql
+-- Insert multiple tracks into the album 'The Dark Side of the Moon'
+INSERT INTO album_track (album_name, track_name, track_number, length)
+    VALUES ('The Dark Side of the Moon', 'Time', 7, '7:49'),
+           ('The Dark Side of the Moon', 'Money', 8, '6:18'),
+           ('The Dark Side of the Moon', 'Us and Them', 9, '7:21');
+```
+
+***
+
+## `DELETE`
+
+`DELETE` is used to delete records from a table.
+
+```sql
+-- Delete the track 'Time' from the album 'The Dark Side of the Moon'
+DELETE FROM album_track
+    WHERE album_name = 'The Dark Side of the Moon' AND track_name = 'Time';
 ```
