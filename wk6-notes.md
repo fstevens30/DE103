@@ -1,6 +1,8 @@
 # Database Design
 
-## Week 6 Notes - SQL Select, Update and Delete
+***
+
+## Week 6.1 Notes - SQL Select, Update and Delete
 
 ## Topics to Learn
 
@@ -120,3 +122,57 @@ You will also run into issues when trying to delete records that are referenced 
 The most important thing to remember is to **always back up your database before making any changes**.
 
 ***
+
+## Week 6.2 Notes - SQL Operators
+
+## Topics to Learn
+
+- Comparison operators
+- Logical operators
+
+### Comparison Operators
+
+- `<>` - Not equal to
+- `>` - Greater than
+- `>=` - Greater than or equal to
+- `<` - Less than
+- `<=` - Less than or equal to
+- `=` - Equal to
+
+Examples:
+
+Using `=`, Equal to:
+
+```sql
+-- Select all tracks from the album 'Meddle'
+SELECT * FROM album_track
+    WHERE album_name = 'Meddle';
+```
+
+Using `<>`, Not equal to:
+
+```sql
+-- Select all tracks that are not from the album 'Meddle'
+SELECT * FROM album_track
+    WHERE album_name <> 'Meddle';
+```
+
+Using `>`, Greater than:
+
+```sql
+-- Select all tracks that have a track number greater than 3
+SELECT track_name, track_order FROM album_track
+    WHERE track_number > 3;
+
+-- We can also use greater than on text e.g. 'A' > 'B' is false
+SELECT track_name, track_order FROM album_track
+    WHERE track_name > 'K'; -- This will return all tracks with a name after 'K'
+```
+
+Somes notes on text comparison when using `track_name > 'K'`:
+
+| track_name  | RElationship to K          |
+| ----------- | -----------                |
+| K           | Equal to, not greater than |
+| Ka          | Greater than               |
+| Light       | Greater than               |
