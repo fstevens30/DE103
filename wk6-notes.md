@@ -171,8 +171,32 @@ SELECT track_name, track_order FROM album_track
 
 Somes notes on text comparison when using `track_name > 'K'`:
 
-| track_name  | RElationship to K          |
+| track_name  | Relationship to K          |
 | ----------- | -----------                |
 | K           | Equal to, not greater than |
 | Ka          | Greater than               |
 | Light       | Greater than               |
+
+Using `>=`, Greater than or equal to:
+
+```sql
+-- Select all tracks that have a track number greater than or equal to 3
+SELECT track_name, track_order FROM album_track
+    WHERE track_number >= 3;
+```
+
+Using `<`, Less than:
+
+```sql
+-- Select all tracks that have a track number less than 3
+SELECT track_name, track_order FROM album_track
+    WHERE track_number < 3;
+```
+
+Using `<=`, Less than or equal to:
+
+```sql
+-- Select all tracks that have a track number less than or equal to 3
+SELECT track_name, track_order FROM album_track
+    WHERE track_number <= 3;
+```
