@@ -139,7 +139,7 @@ The most important thing to remember is to **always back up your database before
 - `<=` - Less than or equal to
 - `=` - Equal to
 
-Examples:
+#### Examples
 
 Using `=`, Equal to:
 
@@ -199,4 +199,79 @@ Using `<=`, Less than or equal to:
 -- Select all tracks that have a track number less than or equal to 3
 SELECT track_name, track_order FROM album_track
     WHERE track_number <= 3;
+```
+
+### Logical Operators
+
+- `IN` - Checks if a value is in a list of values
+- `BETWEEN` - Checks if a value is within a range of values
+- `LIKE` - Checks if a value matches a pattern
+- `AND` - Logical AND
+- `OR` - Logical OR
+- `NOT` - Logical NOT
+
+#### Examples
+
+Using `IN`, Checks if a value is in a list of values:
+
+```sql
+-- Select all tracks in the database where the track_order is either '1', '3' or '6'
+SELECT track_name, track_order FROM album_track
+    WHERE track_order IN (1, 3, 6);
+
+-- Select all albums where the genre is either 'Rock' or 'Progressive Rock'
+SELECT album_name, genre FROM album
+    WHERE genre IN ('Rock', 'Progressive Rock');
+```
+
+Using `BETWEEN`, Checks if a value is within a range of values:
+
+```sql
+-- Select all tracks in the database where the track_order is between '3' and '6'
+SELECT track_name, track_order FROM album_track
+    WHERE track_order BETWEEN 3 AND 6;
+
+-- Works on text too
+SELECT track_name, track_order FROM album_track
+    WHERE track_name BETWEEN 'Decca' AND 'Fearless';
+```
+
+Using `LIKE`, Checks if a value matches a pattern:
+
+```sql
+-- Select all tracks in the database where the track_name starts with 'Ec'
+SELECT track_name, track_order FROM album_track
+    WHERE track_name LIKE 'Ec'; -- This is the same as track_name = 'Ec' therefore it won't return any results
+
+-- Using a wildcard
+SELECT track_name, track_order FROM album_track
+    WHERE track_name LIKE 'Ec%'; -- This will return all tracks that start with 'Ec'
+
+-- Using multiple wildcards
+SELECT track_name, track_order FROM album_track
+    WHERE track_name LIKE '%c%'; -- This will return all tracks that contain 'c' somewhere in the track name
+```
+
+Using `AND`, Logical AND:
+
+```sql
+-- Select all tracks where the album_name is 'The Dark Side of the Moon' and the track_order is '1'
+SELECT track_name, track_order FROM album_track
+    WHERE album_name = 'The Dark Side of the Moon' AND track_order = 1;
+```
+
+Using `OR`, Logical OR:
+
+```sql
+-- Select all tracks where the album_name is 'The Dark Side of the Moon' or the track_order is '1'
+SELECT track_name, track_order FROM album_track
+    WHERE album_name = 'The Dark Side of the Moon' OR track_order = 1;
+```
+
+Using `NOT`, Logical NOT:
+
+```sql
+-- Select all tracks where the track_order is not '7', '9' or '11'
+SELECT track_name, track_order FROM album_track
+    WHERE track_order NOT IN (7, 9, 11);
 ```
