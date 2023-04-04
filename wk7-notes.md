@@ -75,3 +75,12 @@ SELECT a.artist_id, a.album_name, release_date, length, producer_id, record_labe
     ORDER BY a.album_name, t.track_order;
 ```
 
+### Exercise
+
+Choose the correct `JOIN` clause to select all records from the two tables where there is a match in both tables.
+
+```sql
+SELECT * FROM Orders
+    INNER JOIN Customers 
+    ON Orders.CustomerID=Customers.CustomerID;
+```
