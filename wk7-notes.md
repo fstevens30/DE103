@@ -6,6 +6,15 @@
 
 ### Inner Join
 
+Basic Syntax:
+
+```sql
+SELECT columns
+    FROM table1
+    INNER JOIN table2
+    ON table1.column = table2.column;
+```
+
 An inner join returns all rows from both tables where the join condition is met.
 
 ```sql
@@ -65,3 +74,4 @@ SELECT a.artist_id, a.album_name, release_date, length, producer_id, record_labe
     WHERE a.artist_id = 1
     ORDER BY a.album_name, t.track_order;
 ```
+
