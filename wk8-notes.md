@@ -81,3 +81,30 @@ SELECT * FROM album
 
 The key takeaway is that the order of the joins is important. The `RIGHT JOIN` must be the first join, followed by the `FULL JOIN`. 
 The query first joins the `album` and `record_label` tables, then joins the `producer` table to the result of the first join.
+
+## W3 Schools Practice
+
+List the number of customer in each country.
+
+```sql
+SELECT Count(CustomerID),
+    Country
+FROM Customers
+GROUP BY Country;
+```
+
+List the number of customers in each country. Order by the country with the most customers to the least.
+
+```sql
+SELECT Count(CustomerID),
+    Country
+FROM Customers
+GROUP BY Country
+ORDER BY Count(CustomerID) DESC;
+```
+
+Write a SQL statement to create a new database called `testDB`
+
+```sql
+CREATE DATABASE testDB;
+```
