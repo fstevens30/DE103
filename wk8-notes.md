@@ -44,3 +44,15 @@ SELECT * FROM album
     RIGHT JOIN producer
     ON album.producer_id = producer.producer_id;
 ```
+
+As you can see, a `RIGHT JOIN` is the same as a `LEFT JOIN` but with the tables reversed.
+
+The above query can also be written to be a `LEFT JOIN` by reversing the tables and columns.
+
+```sql
+SELECT * FROM producer
+    LEFT JOIN album
+    ON producer.producer_id = album.producer_id;
+```
+
+`RIGHT JOIN` can be helpful when the relational database is complex. It is easier to use `LEFT JOIN` most of the time.
