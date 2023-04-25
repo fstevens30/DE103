@@ -66,3 +66,18 @@ SELECT * FROM album
     FULL JOIN record_label
     ON album.record_label = record_label.name
 ```
+
+## Complex Joins
+
+We have been asked for a report showing all the albums that have record labels and producers associated with them, all record labels and all producers (including those that have no albums associated with them).
+
+```sql
+SELECT * FROM album
+    RIGHT JOIN record_label
+        ON album.record_label = record_label.name
+    FULL JOIN producer
+        ON album.producer_id = producer.producer_id;
+```
+
+The key takeaway is that the order of the joins is important. The `RIGHT JOIN` must be the first join, followed by the `FULL JOIN`. 
+The query first joins the `album` and `record_label` tables, then joins the `producer` table to the result of the first join.
