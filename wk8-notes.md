@@ -34,3 +34,13 @@ SELECT * FROM artist
     LEFT JOIN album
     ON artist.artist_id = album.artist_id;
 ```
+
+## Right Join
+
+Find all albums and their producers, including producers that have no albums, and return all columns and records.
+
+```sql
+SELECT * FROM album
+    RIGHT JOIN producer
+    ON album.producer_id = producer.producer_id;
+```
