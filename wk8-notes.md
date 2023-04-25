@@ -56,3 +56,13 @@ SELECT * FROM producer
 ```
 
 `RIGHT JOIN` can be helpful when the relational database is complex. It is easier to use `LEFT JOIN` most of the time.
+
+## Full Join
+
+Produce a report on albums and record labels, including albums that have no record label and record labels that have no albums.
+
+```sql
+SELECT * FROM album
+    FULL JOIN record_label
+    ON album.record_label = record_label.name
+```
