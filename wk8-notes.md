@@ -24,3 +24,13 @@ SELECT * FROM artist
     INNER JOIN album
     ON artist.artist_id = album.artist_id;
 ```
+
+## Left Join
+
+Find all artists, albums that have an artist, and return all columns and records.
+
+```sql
+SELECT * FROM artist
+    LEFT JOIN album
+    ON artist.artist_id = album.artist_id;
+```
