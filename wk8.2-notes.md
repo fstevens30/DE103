@@ -113,3 +113,24 @@ SELECT MIN(length) AS 'Shortest Album' FROM album;
 /* Get the longest album in the database */
 SELECT MAX(length) AS 'Longest Album' FROM album;
 ```
+
+### GROUP BY
+
+`GROUP BY` is used to group the results of a query by a column.
+
+```sql
+/* Basic Syntax */
+SELECT column_names
+    FROM table_name
+    WHERE conditions
+    ORDER BY column_name
+    GROUP BY column_name;
+```
+
+```sql
+/* Show the number of tracks on each album */
+SELECT artist.name AS 'Artist', album_track.album_name AS 'Album', COUNT(album_track.track_name) AS 'Number of Tracks' FROM album_track
+    INNER JOIN artist
+        ON album_track.artist_id = artist.artist_id
+    GROUP BY artist.name, album_track.album_name;
+```
