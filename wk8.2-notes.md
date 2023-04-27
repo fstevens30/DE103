@@ -134,3 +134,16 @@ SELECT artist.name AS 'Artist', album_track.album_name AS 'Album', COUNT(album_t
         ON album_track.artist_id = artist.artist_id
     GROUP BY artist.name, album_track.album_name;
 ```
+
+### HAVING
+
+`HAVING` is used to filter the results of an aggregate function. It is similar to `WHERE`, but `WHERE` cannot be used with aggregate functions.
+
+```sql
+/* Show the number of tracks on each album with 5 or more tracks */
+SELECT artist_id, album_name, COUNT(track_name) AS 'Number of Tracks' FROM album_track
+    GROUP BY artist_id, album_name
+    HAVING COUNT(track_name) >= 5;
+```
+
+***
