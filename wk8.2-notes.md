@@ -16,7 +16,7 @@
 
 ### COUNT
 
-Count is used to get the number of records that match the conditions of the query.
+`COUNT` is used to get the number of records that match the conditions of the query.
 
 ```sql
 /* Get all records in a table */
@@ -42,4 +42,74 @@ SELECT COUNT(*) AS 'Total Number of Pink Floyd Albums' FROM album
     INNER JOIN artist
         ON album.artist_id = artist.artist_id
     WHERE artist.name = 'Pink Floyd';
+```
+
+### SUM
+
+`SUM` is used to add numbers to get a total value.
+
+```sql
+/* Get the total length of all albums in the database */
+SELECT SUM(length) AS 'Total Length of All Albums' FROM album;
+```
+
+```sql
+/* Get the total length of all albums where the release date is >= 1/1/1980 */
+SELECT SUM(length) AS 'Total Length of All Albums from 1980 Onwards' FROM album
+    WHERE release_date >= '1980-01-01';
+```
+
+```sql
+/* Get the total length of all albums by Pink Floyd */
+SELECT SUM(length) AS 'Total Length of All Pink Floyd Albums' FROM album
+    INNER JOIN artist
+        ON album.artist_id = artist.artist_id
+    WHERE artist.name = 'Pink Floyd';
+```
+
+### AVG
+
+`AVG` is used to get the average value of a column.
+
+```sql
+/* Get the average length of all albums in the database */
+SELECT AVG(length) AS 'Average Length of All Albums' FROM album;
+```
+
+```sql
+/* Get the average length of all albums where the release date is >= 1/1/1980 */
+SELECT AVG(length) AS 'Average Length of All Albums from 1980 Onwards' FROM album
+    WHERE release_date >= '1980-01-01';
+```
+
+```sql
+/* Get the average length of all albums by Pink Floyd */
+SELECT AVG(length) AS 'Average Length of All Pink Floyd Albums' FROM album
+    INNER JOIN artist
+        ON album.artist_id = artist.artist_id
+    WHERE artist.name = 'Pink Floyd';
+```
+
+This query returns an integer value. If you want to return a decimal value, you can use the `CAST` function. This way it is not rounded down.
+
+```sql
+/* Get the average length of all albums by Pink Floyd */
+SELECT AVG(CAST(length AS FLOAT)) AS 'Average Length of All Pink Floyd Albums' FROM album
+    INNER JOIN artist
+        ON album.artist_id = artist.artist_id
+    WHERE artist.name = 'Pink Floyd';
+```
+
+### MIN and MAX
+
+`MIN` and `MAX` are used to get the minimum and maximum values of a column.
+
+```sql
+/* Get the shortest album in the database */
+SELECT MIN(length) AS 'Shortest Album' FROM album;
+```
+
+```sql
+/* Get the longest album in the database */
+SELECT MAX(length) AS 'Longest Album' FROM album;
 ```
