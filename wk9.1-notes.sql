@@ -116,3 +116,17 @@ SELECT a.album_name, a.length, COUNT(t.track_name) AS 'Number of Tracks', CAST(a
         AND a.artist_id = t.artist_id
     GROUP BY a.album_name, a.length;
 -- This gives a more accurate result compared to the previous example.
+
+
+-- Operations of dates
+
+-- DATEDIFF() function
+SELECT album_name, DATEDIFF(DAY, release_date, CURRENT_TIMESTAMP) AS 'Days Since Release' 
+    FROM album;
+
+SELECT album_name, DATEDIFF(YEAR, release_date, CURRENT_TIMESTAMP) AS 'Years Since Release' 
+    FROM album;
+
+-- Difference between two dates
+SELECT DATEDIFF(YEAR, MIN(release_date), MAX(release_date)) AS 'Years Between First and Last Release' 
+    FROM album;
