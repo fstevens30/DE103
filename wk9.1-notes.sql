@@ -88,5 +88,31 @@ SELECT album_name, sales_value / number_of_sales AS 'Average Value Per Unit Sold
     FROM album;
 
 -- Class Exersise 2
-SELECT  album_name, length, sales_value, sales_value / length AS 'Sales Value Per Minute'
+SELECT  album_name, length, sales_value, sales_value / length AS 'Value Per Minute'
     FROM album;
+
+
+-- Combining mathmatical operators
+
+-- Get the value of albums sales less the royalties paid to the artist
+SELECT a.album_name, a.sales_value - (a.sales_value * r.royalty) AS 'Value After Royalties' FROM album a
+    INNER JOIN artist r
+        ON a.artist_id = r.artist_id;
+
+/* Remebmer the order of operations from math class, you can use brackets to change the order of operations in SQL as well. 
+Therefore the parentheses in the above example are not needed, but they are there to make the code more readable. */
+
+-- Calculate the average track length for each album
+SELECT a.album_name, a.length, COUNT(t.track_name) AS 'Number of Tracks', a.length / COUNT(t.track_name) AS 'Average Track Length' FROM album a
+    JOIN album_track t
+        ON a.album_name = t.album_name
+        AND a.artist_id = t.artist_id
+    GROUP BY a.album_name, a.length;
+
+-- If we want this to display as a FLOAT we need to use the CAST() function
+SELECT a.album_name, a.length, COUNT(t.track_name) AS 'Number of Tracks', CAST(a.length / COUNT(t.track_name) AS FLOAT) AS 'Average Track Length' FROM album a
+    JOIN album_track t
+        ON a.album_name = t.album_name
+        AND a.artist_id = t.artist_id
+    GROUP BY a.album_name, a.length;
+-- This gives a more accurate result compared to the previous example.
