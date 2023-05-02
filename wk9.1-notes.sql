@@ -104,14 +104,14 @@ Therefore the parentheses in the above example are not needed, but they are ther
 
 -- Calculate the average track length for each album
 SELECT a.album_name, a.length, COUNT(t.track_name) AS 'Number of Tracks', a.length / COUNT(t.track_name) AS 'Average Track Length' FROM album a
-    JOIN album_track t
+    INNER JOIN album_track t
         ON a.album_name = t.album_name
         AND a.artist_id = t.artist_id
     GROUP BY a.album_name, a.length;
 
 -- If we want this to display as a FLOAT we need to use the CAST() function
-SELECT a.album_name, a.length, COUNT(t.track_name) AS 'Number of Tracks', CAST(a.length / COUNT(t.track_name) AS FLOAT) AS 'Average Track Length' FROM album a
-    JOIN album_track t
+SELECT a.album_name, a.length, COUNT(t.track_name) AS 'Number of Tracks', CAST(a.length AS FLOAT) / COUNT(t.track_name) AS 'Average Track Length' FROM album a
+    INNER JOIN album_track t
         ON a.album_name = t.album_name
         AND a.artist_id = t.artist_id
     GROUP BY a.album_name, a.length;
