@@ -68,3 +68,25 @@ SELECT album_name, length * 60 AS 'Album Length in Seconds'
 SELECT r.name, a.album_name, a.sales_value * r.royalty AS 'Artist Earnings' FROM album a
     INNER JOIN artist r
         ON a.artist_id = r.artist_id;
+
+
+-- 4. Division
+
+-- Basic Syntax
+SELECT column_name / column_name AS 'Column Name'
+    FROM table_name;
+
+-- Or
+SELECT column_name / 1000 AS 'Column Name'
+    FROM table_name;
+
+-- When dividing numbers floats have priority over integers, so if you want to get an integer result you need to use the FLOOR() function.
+
+-- Example from 100 Albums Database
+-- Get the average value per unit sold
+SELECT album_name, sales_value / number_of_sales AS 'Average Value Per Unit Sold'
+    FROM album;
+
+-- Class Exersise 2
+SELECT  album_name, length, sales_value, sales_value / length AS 'Sales Value Per Minute'
+    FROM album;
