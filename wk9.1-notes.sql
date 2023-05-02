@@ -29,3 +29,22 @@ SELECT t.track_name, t.track_order, a.producer_id, t.track_order + a.producer_id
     INNER JOIN album a
         ON t.album_name = a.album_name
         AND t.artist_id = a.artist_id;
+
+
+-- 2. Subtraction
+
+/* Basically the same as addition, just use the - symbol instead of the + symbol */
+
+-- Basic Syntax
+SELECT column_name - column_name AS 'Column Name'
+    FROM table_name;
+
+-- Or
+SELECT column_name - 1000 AS 'Column Name'
+    FROM table_name;
+
+-- Example from 100 Albums Database
+SELECT album_name, number_of_sales, number_of_sales - 100 AS 'Number of Sales Minus 100'
+    FROM album;
+
+
