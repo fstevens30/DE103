@@ -48,3 +48,23 @@ SELECT album_name, number_of_sales, number_of_sales - 100 AS 'Number of Sales Mi
     FROM album;
 
 
+-- 3. Multiplication
+
+-- Basic Syntax
+SELECT column_name * column_name AS 'Column Name'
+    FROM table_name;
+
+-- Or
+SELECT column_name * 1000 AS 'Column Name'
+    FROM table_name;
+
+-- Example from 100 Albums Database
+-- Get each album length in seconds. (Note: 1 minute = 60 seconds)
+
+SELECT album_name, length * 60 AS 'Album Length in Seconds'
+    FROM album;
+
+-- Complex example
+SELECT r.name, a.album_name, a.sales_value * r.royalty AS 'Artist Earnings' FROM album a
+    INNER JOIN artist r
+        ON a.artist_id = r.artist_id;
