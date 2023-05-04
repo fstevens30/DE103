@@ -45,3 +45,20 @@ SELECT name FROM producer;
 SELECT name, 'Artist' AS "Type" FROM artist
 UNION ALL
 SELECT name, 'Producer' AS FROM producer;
+
+
+-- Another complex example
+-- Produce a list of only the artists and producers who have been associated with an album.
+SELECT name FROM artist
+    INNER JOIN album
+        ON artist.artist_id = album.artist_id
+UNION
+SELECT name FROM producer
+    INNER JOIN album
+        ON producer.producer_id = album.producer_id;
+
+-- Class Exersise 1
+-- Write a query that returns the names of all albums in the album table and all albums in the genre table, keeping duplicates.
+SELECT album_name FROM album
+UNION ALL
+SELECT album_name FROM genre;
