@@ -62,3 +62,24 @@ SELECT name FROM producer
 SELECT album_name FROM album
 UNION ALL
 SELECT album_name FROM genre;
+
+
+-- 3. INTERSECT
+-- Returns records (rows) that are in both sets
+
+-- Basic Syntax
+SELECT column_name1 FROM table1
+INTERSECT
+SELECT column_name2 FROM table2;
+
+-- Example from 100 Albums Database
+-- Find the names of all who are both artists and producers.
+SELECT name FROM artist
+INTERSECT
+SELECT name FROM producer;
+
+-- Class Exersise 2
+-- Write a query that returns a list of album tracks that have the same name as albums. E.g there is a song (track) called "Protection" on the album "Protection".
+SELECT track_name FROM album_track
+INTERSECT
+SELECT album_name FROM album;
