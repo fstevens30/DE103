@@ -24,3 +24,17 @@ SELECT
 
 -- Report 2, Find films that we have more than four DVD copies of.
 
+SELECT 
+        f.title,
+        COUNT(i.inventory_id) AS 'Number of Copies'
+
+    FROM film f
+
+        INNER JOIN inventory i
+            ON f.film_id = i.film_id
+
+    WHERE i.media_type = 'DVD'
+
+    GROUP BY f.title
+
+    HAVING COUNT(i.inventory_id) > 4;
