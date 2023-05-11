@@ -38,3 +38,47 @@ SELECT
     GROUP BY f.title
 
     HAVING COUNT(i.inventory_id) > 4;
+
+
+
+-- Workshop Quiz
+
+-- How many VHS tapes are in the inventory?
+
+SELECT 
+        COUNT(i.inventory_id) AS 'Number of VHS Tapes'
+
+    FROM inventory i
+
+    WHERE i.media_type = 'VHS';
+
+
+-- Which actors are in the film 'Caddyshack Jedi'?
+
+SELECT 
+        a.first_name, a.last_name
+
+    FROM actor a
+
+        INNER JOIN film_actor fa
+            ON a.actor_id = fa.actor_id
+
+        INNER JOIN film f
+            ON fa.film_id = f.film_id
+
+    WHERE f.title = 'Caddyshack Jedi';
+
+-- Which films have the actor 'Emily Dee' appeared in?
+
+SELECT 
+        f.title
+
+    FROM film f
+
+        INNER JOIN film_actor fa
+            ON f.film_id = fa.film_id
+
+        INNER JOIN actor a
+            ON fa.actor_id = a.actor_id
+
+    WHERE a.first_name = 'Emily' AND a.last_name = 'Dee';
