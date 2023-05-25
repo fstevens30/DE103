@@ -27,3 +27,33 @@ SELECT OR ALTER VIEW album_VIEW AS
 
 -- Now we can query the view
 SELECT * FROM album_view;
+
+-- You cannot use ORDER BY in a view definition but you can use it when querying the view
+-- Example 
+SELECT * FROM album_view
+ORDER BY album_name;
+
+-- Hiding sensitive data
+
+-- Create a view that hides the release date
+CREATE VIEW restricted_album_view AS
+    SELECT album_name, length, record_label
+    FROM album;
+
+-- Create a view that does not hide the release date
+CREATE VIEW full_album_view AS
+    SELECT album_name, release_date, length, record_label
+    FROM album;
+
+-- Now we can query the views to see the difference
+SELECT * FROM restricted_album_view;
+SELECT * FROM full_album_view;
+
+
+-- We can create views that restrict to certain date, e.g albums from the 70's
+CREATE VIEW seventies_album_view AS
+    SELECT * FROM album
+        WHERE release_date BETWEEN '1970-01-01' AND '1979-12-31';
+
+-- Now we can query the view
+SELECT * FROM seventies_album_view;
