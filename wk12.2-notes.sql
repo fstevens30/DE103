@@ -57,3 +57,19 @@ CREATE VIEW seventies_album_view AS
 
 -- Now we can query the view
 SELECT * FROM seventies_album_view;
+
+
+-- LABS
+
+-- Create a view that shows which album tracks a producer has produced
+-- (We assume the producer produces all tracks on an album)
+-- We want this information: producer name, album name, track name.
+
+-- Create the view
+CREATE VIEW producer_album_track_view AS
+    SELECT pr.name AS producer_name, al.album_name, tr.track_name
+    FROM producer pr
+        INNER JOIN album al
+            ON pr.producer_id = al.producer_id
+        INNER JOIN album_track tr
+            ON al.album_name = tr.album_name;
