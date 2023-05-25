@@ -72,4 +72,8 @@ CREATE VIEW producer_album_track_view AS
         INNER JOIN album al
             ON pr.producer_id = al.producer_id
         INNER JOIN album_track tr
-            ON al.album_name = tr.album_name;
+            ON al.album_name = tr.album_name
+            AND al.artist_id = tr.artist_id;
+
+-- Now we can query the view
+SELECT * FROM producer_album_track_view;
