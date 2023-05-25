@@ -17,3 +17,13 @@ CREATE VIEW album_view AS
 
 -- Now we can query the view
 SELECT * FROM album_view;
+
+-- Modify the view to show the artist name
+SELECT OR ALTER VIEW album_VIEW AS 
+    SELECT al.album_name, ar.name, al.release_date, al.length, al.record_label
+    FROM album al
+        INNER JOIN artist ar
+            ON al.artist_id = ar.artist_id;
+
+-- Now we can query the view
+SELECT * FROM album_view;
