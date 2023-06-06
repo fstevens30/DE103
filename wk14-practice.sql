@@ -68,3 +68,51 @@ CREATE TABLE article_author (
     FOREIGN KEY (author_id) REFERENCES author(author_id),
     CONSTRAINT article_author_pk PRIMARY KEY (article_title, article_magazine_title, author_id),
     );
+
+
+/* Queries */
+
+-- Q1
+
+SELECT * FROM Customer WHERE Country = 'France';
+
+-- Q2
+
+SELECT * FROM Product WHERE UnitsInStock = 0;
+
+-- Q3
+
+SELECT MAX(Freight) AS 'Max Freight Amount' FROM Orders;
+
+-- Q4
+
+SELECT * FROM Orders
+	INNER JOIN Shipper
+		ON Orders.ShipperID = Shipper.ShipperID;
+
+-- Q5
+
+SELECT * FROM OrderItem WHERE Discount > 0.20;
+
+-- Q6
+
+SELECT FirstName, LastName FROM Employee
+	INNER JOIN EmployeeTerritory
+		ON Employee.EmployeeID = EmployeeTerritory.EmployeeID
+
+		WHERE EmployeeTerritory.TerritoryDescription = 'Orlando';
+
+-- Q7
+
+CREATE VIEW EmployeeRestricted_view AS
+	SELECT EmployeeID, LastName, FirstName, Title FROM Employee;
+
+SELECT * FROM EmployeeRestricted_view;
+
+-- Q8
+
+SELECT ProductName, CompanyName FROM Product
+	INNER JOIN Supplier
+		ON Product.SupplierID = Supplier.SupplierID
+	WHERE CategoryName = 'seafood'
+	ORDER BY ProductName;
